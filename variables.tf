@@ -57,7 +57,7 @@ variable "monitoring" {
 
 variable "vpc_security_group_ids" {
   description = "A list of security group IDs to associate with"
-  type        = "list"
+  type        = list
 }
 
 variable "subnet_id" {
@@ -131,7 +131,7 @@ variable "network_interface" {
 }
 
 variable "spot_price" {
-  type        = "string"
+  type        = string
   description = "The maximum hourly price (bid) you are willing to pay for the instance, e.g. 0.10"
 }
 
@@ -141,25 +141,25 @@ variable "wait_for_fulfillment" {
 }
 
 variable "launch_group" {
-  type        = "string"
+  type        = string
   description = "Group name to assign the instances to so they can be started/stopped in unison, e.g. purple-plutonium"
   default     = ""
 }
 
 variable "instance_interruption_behaviour" {
-  type        = "string"
+  type        = string
   description = "Whether a Spot instance stops or terminates when it is interrupted, can be stop or terminate"
   default     = "terminate"
 }
 
 variable "block_duration_minutes" {
-  type        = "string"
+  type        = string
   description = "(Optional) The required duration for the Spot instances, in minutes. This value must be a multiple of 60 (60, 120, 180, 240, 300, or 360)."
   default     = "0"
 }
 
 variable "spot_type" {
-  type        = "string"
+  type        = string
   description = "(Optional; Default: 'persistent') If set to 'one-time', after the instance is terminated, the spot request will be closed. Also, Terraform can't manage one-time spot requests, just launch them."
   default     = "persistent"
 }
